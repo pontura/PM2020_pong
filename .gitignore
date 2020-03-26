@@ -1,0 +1,10 @@
+# =============== #
+# Unity generated #
+# =============== #
+obj/
+UnityGenerated/
+Library/
+Logs/
+.vs/
+Temp/
+
