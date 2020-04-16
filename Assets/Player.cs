@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 public class Player : MonoBehaviour
 {
+
     public float speed = 0.8f;
     public Game game;
     public types type;
@@ -12,6 +13,7 @@ public class Player : MonoBehaviour
         PLAYER2
     }
     float offset = 0.7f;
+
     void Update()
     {
         float player_y = transform.position.y;
