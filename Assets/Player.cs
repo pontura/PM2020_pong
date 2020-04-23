@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 public class Player : MonoBehaviour
 {
-
+    public float angleDistortion = 1;
     public float speed = 0.8f;
     public Game game;
     public types type;
@@ -44,4 +44,17 @@ public class Player : MonoBehaviour
     {        
         transform.position = new Vector2(transform.position.x, transform.position.y + speed * direction * Time.deltaTime);
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        Ball ball = other.gameObject.GetComponent<Ball>();
+        if (ball == null)
+            return;
+        
+        float center = transform.position.y; 
+        ball.direction_y += (ball.transform.position.y - center) * angleDistortion;
+        other.gameObject.GetComponent<Ball>().direction_x *= -1;
+    }
+
+
 }
