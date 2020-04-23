@@ -12,6 +12,8 @@ public class Game : MonoBehaviour
     public Text field_score_p1;
     public Text field_score_p2;
 
+    public Player.types playerActiveType;
+
     void Start()
     {
         
@@ -31,7 +33,5 @@ public class Game : MonoBehaviour
 
         if (score_player_1 > 100 || score_player_2 > 100)
             UnityEngine.SceneManagement.SceneManager.LoadScene("Game");
-
-
     }
 }

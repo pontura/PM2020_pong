@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
 public class Player : MonoBehaviour
 {
     public float angleDistortion = 1;
@@ -13,6 +14,7 @@ public class Player : MonoBehaviour
         PLAYER2
     }
     float offset = 0.7f;
+    public Animation anim;
 
     void Update()
     {
@@ -41,7 +43,7 @@ public class Player : MonoBehaviour
         }
     }
     void Move(int direction)
-    {        
+    {
         transform.position = new Vector2(transform.position.x, transform.position.y + speed * direction * Time.deltaTime);
     }
 
@@ -50,7 +52,11 @@ public class Player : MonoBehaviour
         Ball ball = other.gameObject.GetComponent<Ball>();
         if (ball == null)
             return;
-        
+
+        //choco con la pelota:
+        game.playerActiveType = type;
+        anim.Play();
+
         float center = transform.position.y; 
         ball.direction_y += (ball.transform.position.y - center) * angleDistortion;
         other.gameObject.GetComponent<Ball>().direction_x *= -1;

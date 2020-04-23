@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Ball : MonoBehaviour
 {
-    public float speed = 5;
+    public float speed = 10;
     public float smooth = 1;
     public float direction_x = 1f;
     public float direction_y = 1f;
@@ -19,6 +19,7 @@ public class Ball : MonoBehaviour
   
     void Update()
     {
+
         _x = transform.position.x + speed * direction_x * Time.deltaTime;
         _y = transform.position.y + speed * direction_y * Time.deltaTime;
 
