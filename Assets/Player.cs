@@ -15,6 +15,7 @@ public class Player : MonoBehaviour
     }
     float offset = 0.7f;
     public Animation anim;
+    public AudioSource audioSource;
 
     void Update()
     {
@@ -56,9 +57,14 @@ public class Player : MonoBehaviour
         //choco con la pelota:
         game.playerActiveType = type;
         anim.Play();
+        audioSource.Play();
 
         float center = transform.position.y; 
         ball.direction_y += (ball.transform.position.y - center) * angleDistortion;
+        if(ball.direction_y > 1.1f)
+            ball.direction_y = 1.1f;
+        else if (ball.direction_y < -1.1f)
+            ball.direction_y = -1.1f;
         other.gameObject.GetComponent<Ball>().direction_x *= -1;
     }
 

@@ -5,6 +5,7 @@ using UnityEngine;
 public class Coin : MonoBehaviour
 {
     public Game game;
+    public bool isPowerup;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -19,7 +20,20 @@ public class Coin : MonoBehaviour
         else
             game.Win(2, 1 + extra);
 
-        Repositionate();
+       
+
+        if(isPowerup == true)
+        {
+            Ball ball = other.GetComponent<Ball>();
+            if(ball != null)
+            {
+                ball.Powerup();
+            }
+        }
+
+        transform.position = new Vector2(1000, 1000);
+        CancelInvoke();
+        Invoke("Repositionate", 2); // corre la funcion despues de 2 seg:
     }
     void Repositionate()
     {

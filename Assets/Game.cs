@@ -16,7 +16,7 @@ public class Game : MonoBehaviour
 
     void Start()
     {
-        
+
     }
     public void Win(int playerID, int score)
     {
@@ -31,7 +31,15 @@ public class Game : MonoBehaviour
             field_score_p2.text = score_player_2.ToString();
         }
 
-        if (score_player_1 > 100 || score_player_2 > 100)
-            UnityEngine.SceneManagement.SceneManager.LoadScene("Game");
+        if (score_player_1 > 100)
+        {
+            Data.player_win_ID = 1;
+            UnityEngine.SceneManagement.SceneManager.LoadScene("GameOver");
+        }
+        else  if (score_player_2 > 100)
+        {
+            Data.player_win_ID = 2;
+            UnityEngine.SceneManagement.SceneManager.LoadScene("GameOver");
+        }
     }
 }

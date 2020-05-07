@@ -64,8 +64,12 @@
   <ItemGroup>
     <Compile Include="Assets\Ball.cs" />
     <Compile Include="Assets\Coin.cs" />
+    <Compile Include="Assets\Data.cs" />
     <Compile Include="Assets\Game.cs" />
+    <Compile Include="Assets\GameOver.cs" />
+    <Compile Include="Assets\MainMenu.cs" />
     <Compile Include="Assets\Player.cs" />
+    <Compile Include="Assets\SoundsManager.cs" />
     <Compile Include="Assets\Wall.cs" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>C:/projects/maimonides/2020/pong/src/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
